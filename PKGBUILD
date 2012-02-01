@@ -4,6 +4,7 @@
 
 pkgname=mplayer2
 pkgver=2.0.20111101
+_snapshot="${pkgname}-e3f5043233336d8b4b0731c6a8b42a8fda5535ac"
 pkgrel=1
 pkgdesc="A movie player"
 arch=('i686' 'x86_64')
@@ -16,28 +17,12 @@ makedepends=('live-media' 'mesa' 'unzip' 'yasm' 'git')
 backup=('etc/mplayer/codecs.conf' 'etc/mplayer/input.conf')
 provides=('mplayer')
 conflicts=('mplayer')
-#source=(http://ftp.mplayer2.org/pub/release/${pkgname}-${pkgver/_/-}.tar.xz
-source=(ftp://ftp.archlinux.org/other/community/${pkgname}/${pkgname}-${pkgver}.tar.xz)
-sha1sums=('78c78605733ca792bb12a52a751a508bfc0f213d')
+source=("http://git.${pkgname}.org/${pkgname}/snapshot/${_snapshot}.tar.xz")
+sha1sums=('761f5f39dccbac1ac79700500b9e4bbb7d78800e')
 options=('!emptydirs')
 
-# source PKGBUILD && mksource
-mksource() {
-  _gitroot="git://git.mplayer2.org/mplayer2.git"
-  _gitname="${pkgname}-${pkgver}"
-
-  if [[ -d "$_gitname" ]]; then
-    cd "$_gitname" && git pull origin
-  else
-    git clone "$_gitroot" "$_gitname"
-  fi
-
-  tar -cJvf ${_gitname}.tar.xz ${_gitname}
-  rm -fr ${_gitname}
-}
-
 build() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${_snapshot}"
 
     ./configure --prefix=/usr \
                 --enable-runtime-cpudetection \
@@ -55,7 +40,7 @@ build() {
 }
 
 package() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${_snapshot}"
 
     make DESTDIR="${pkgdir}" install
     install -Dm644 etc/{codecs.conf,input.conf,example.conf} "${pkgdir}"/etc/mplayer/
