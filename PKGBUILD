@@ -14,7 +14,7 @@ url="http://www.mplayer2.org/"
 depends=('libgl' 'libvdpau' 'ffmpeg' 'libdvdcss' 'libdvdread' 'libdvdnav' 'libxvmc' 'libass' 'fontconfig' 'freetype2'
          'ttf-dejavu' 'sdl' 'aalib' 'libcaca' 'faad2' 'libpulse' 'jack' 'ncurses' 'libxxf86vm' 'cdparanoia' 'libmad'
          'a52dec' 'libdca' 'libxxf86dga' 'libxss' 'mpg123' 'ladspa')
-makedepends=('live-media' 'mesa' 'unzip' 'yasm' 'git')
+makedepends=('mesa' 'unzip' 'yasm' 'git')
 backup=('etc/mplayer/codecs.conf' 'etc/mplayer/input.conf')
 provides=('mplayer')
 conflicts=('mplayer')
@@ -36,7 +36,8 @@ build() {
                 --disable-mga \
                 --language=all \
                 --enable-translation \
-                --confdir=/etc/mplayer
+                --confdir=/etc/mplayer \
+                --disable-live  # Disabled by default in Uoti’s Git branch
     make
 }
 
