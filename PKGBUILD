@@ -3,8 +3,9 @@
 # Contributor: Bartek Piotrowski <barthalion@gmail.com>
 
 pkgname=mplayer2
-pkgver=2.0.20111101
-_snapshot="${pkgname}-e3f5043233336d8b4b0731c6a8b42a8fda5535ac"
+_commit=3a39fc1
+pkgver="2.0.20111114+g${_commit}"
+_snapshot="${pkgname}-${_commit}"
 pkgrel=1
 pkgdesc="A movie player"
 arch=('i686' 'x86_64')
@@ -18,7 +19,7 @@ backup=('etc/mplayer/codecs.conf' 'etc/mplayer/input.conf')
 provides=('mplayer')
 conflicts=('mplayer')
 source=("http://git.${pkgname}.org/${pkgname}/snapshot/${_snapshot}.tar.xz")
-sha1sums=('761f5f39dccbac1ac79700500b9e4bbb7d78800e')
+sha1sums=('ae4542ae6bbe00110aed32708d097ec5f611f0de')
 options=('!emptydirs')
 
 build() {
