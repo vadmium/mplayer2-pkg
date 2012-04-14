@@ -3,8 +3,7 @@
 # Contributor: Bartek Piotrowski <barthalion@gmail.com>
 
 pkgname=mplayer2
-_commit=3a39fc1
-pkgver="2.0.20111114+g${_commit}"
+_commit=74ad0b4 pkgver="2.0.20120411+g${_commit}"
 _snapshot="${pkgname}-${_commit}"
 pkgrel=1
 pkgdesc="A movie player"
@@ -19,7 +18,7 @@ backup=('etc/mplayer/codecs.conf' 'etc/mplayer/input.conf')
 provides=('mplayer')
 conflicts=('mplayer')
 source=("http://git.${pkgname}.org/${pkgname}/snapshot/${_snapshot}.tar.xz")
-sha1sums=('ae4542ae6bbe00110aed32708d097ec5f611f0de')
+sha1sums=('531159114b8e409385b7eb90220db462eec432ef')
 options=('!emptydirs')
 
 build() {
@@ -36,8 +35,7 @@ build() {
                 --disable-mga \
                 --language=all \
                 --enable-translation \
-                --confdir=/etc/mplayer \
-                --disable-live  # Disabled by default in Uoti’s Git branch
+                --confdir=/etc/mplayer
     make
 }
 
