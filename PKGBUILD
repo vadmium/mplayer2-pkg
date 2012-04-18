@@ -2,6 +2,10 @@
 # Maintainer: Stéphane Gaudreault <stephane@archlinux.org>
 # Contributor: Bartek Piotrowski <barthalion@gmail.com>
 
+# Similar packages:
+# http://anonscm.debian.org/gitweb?p=pkg-multimedia/mplayer2.git
+#http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-multimedia/mplayer
+
 pkgname=mplayer2
 _commit=74ad0b4 pkgver="2.0.20120411+g${_commit}"
 _snapshot="${pkgname}-${_commit}"
