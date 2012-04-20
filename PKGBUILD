@@ -7,7 +7,8 @@
 #http://cgit.openembedded.org/meta-openembedded/tree/meta-oe/recipes-multimedia/mplayer
 
 pkgname=mplayer2
-_commit=74ad0b4 pkgver="2.0.20120411+g${_commit}"
+_commit=74ad0b4
+pkgver="2.0.20120411+g${_commit}"
 _snapshot="${pkgname}-${_commit}"
 pkgrel=1
 pkgdesc="A movie player"
